@@ -6,7 +6,9 @@ class RacingGameApp {
 
   constructor() {
     this.inputView = new InputView();
-    const carNames = this.inputView.inputCarNames().split(",");
+    this.inputView.inputCarNames().then((result) => {
+      console.log(result);
+    });
   }
 }
 
