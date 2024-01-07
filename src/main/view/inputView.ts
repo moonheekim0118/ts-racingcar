@@ -1,18 +1,22 @@
-import * as readline from "readline";
+import InputHandler from "../helpers/inputHandler";
 
 class InputView {
-  rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
+  private inputHandler;
+  constructor() {
+    this.inputHandler = new InputHandler();
+  }
 
-  constructor() {}
+  async inputCarNames() {
+    try {
+      const userInput = await this.inputHandler.getUserInput(
+        "자동차 이름을 입력해주세요."
+      );
+      await this.inputHandler.close();
 
-  inputCarNames() {
-    this.rl.question("자동차 이름을 입력해주세요.", (input) => {
-      this.rl.close();
-      return input;
-    });
+      return userInput;
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
 
