@@ -31,3 +31,17 @@ describe("자동차 경주 횟수 테스트", () => {
     }).toThrow("자동차 경주 회수는 1회 이상이어야 합니다.");
   });
 });
+
+describe("각 자동차들의 이동여부 판단 테스트", () => {
+  test("값이 4 이상이면 이동한다.", () => {
+    const car = new Car("hope");
+    car.moveForward(4);
+    expect(car.position).toBe(1);
+  });
+
+  test("값이 4 미만이면 이동하지 않는다.", () => {
+    const car = new Car("hope");
+    car.moveForward(3);
+    expect(car.position).toBe(0);
+  });
+});

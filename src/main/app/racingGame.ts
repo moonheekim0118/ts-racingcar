@@ -9,7 +9,9 @@ class RacingGameApp {
 
   constructor() {
     this.inputView = new InputView();
-    this.setupGame();
+    this.setupGame().then(() => {
+      this.startGame();
+    });
   }
 
   async setupGame() {
@@ -18,6 +20,11 @@ class RacingGameApp {
 
     const rallyResult = await this.inputView.inputRacingRally();
     this.Referee = new Referee(Number(rallyResult), this.Cars);
+  }
+
+  startGame() {
+    this.Referee.judgeGame();
+    this.Referee.getWinners();
   }
 }
 
