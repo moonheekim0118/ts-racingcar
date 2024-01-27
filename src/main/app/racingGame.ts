@@ -3,9 +3,9 @@ import Referee from "../domain/referee";
 import InputView from "../view/inputView";
 
 class RacingGameApp {
-  readonly inputView;
-  Cars: [];
-  Referee;
+  private inputView;
+  private Cars: Car[];
+  private Referee: Referee;
 
   constructor() {
     this.inputView = new InputView();
