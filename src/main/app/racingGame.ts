@@ -17,7 +17,7 @@ class RacingGameApp {
 
   async setupGame() {
     const carNameResult = await this.inputView.inputCarNames();
-    const carNames = CarNameDto.from(carNameResult).carNameList;
+    const carNames = CarNameDto.from(carNameResult).getCarNameList();
     carNames.map((car) => new Car(car));
 
     const rallyResult = await this.inputView.inputRacingRally();

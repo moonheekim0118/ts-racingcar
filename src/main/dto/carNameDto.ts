@@ -1,5 +1,5 @@
 class CarNameDto {
-  carNameList: string[];
+  private carNameList: string[];
 
   constructor(carNameList: string[]) {
     this.carNameList = carNameList;
@@ -7,6 +7,10 @@ class CarNameDto {
 
   static from(carNameString: string) {
     return new CarNameDto(carNameString.split(","));
+  }
+
+  getCarNameList() {
+    return this.carNameList;
   }
 }
 
