@@ -21,7 +21,7 @@ describe("자동차 이름 테스트.", () => {
 
 describe("자동차 경주 횟수 테스트", () => {
   test("경주 심판은 경주가 실행 될 횟수를 갖는다.", () => {
-    const rally = new Referee(1, [new Car("hope")]).rally;
+    const rally = new Referee(1, [new Car("hope")]).getRally();
     expect(rally).toBe(1);
   });
 

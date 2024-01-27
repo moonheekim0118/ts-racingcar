@@ -2,13 +2,21 @@ import { randomUtil } from "../utils/randomUtil";
 import Car from "./car";
 
 class Referee {
-  rally: number;
-  participants: Car[];
+  private rally: number = 0;
+  private participants: Car[] = [];
 
   constructor(rally: number, participants: Car[]) {
     this.validateRally(rally);
     this.rally = rally;
     this.participants = participants;
+  }
+
+  getRally() {
+    return this.rally;
+  }
+
+  getParticipants() {
+    return this.participants;
   }
 
   validateRally(rally: number) {
