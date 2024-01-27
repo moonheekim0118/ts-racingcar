@@ -18,6 +18,19 @@ class InputView {
       console.error(error);
     }
   }
+
+  async inputRacingRally() {
+    try {
+      const userInput = await this.inputHandler.getUserInput(
+        "경주 회수를 입력해주세요"
+      );
+      await this.inputHandler.close();
+
+      return userInput;
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
 
 export default InputView;
