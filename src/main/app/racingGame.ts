@@ -1,5 +1,6 @@
 import Car from "../domain/car";
 import Referee from "../domain/referee";
+import CarNameDto from "../dto/carNameDto";
 import InputView from "../view/inputView";
 
 class RacingGameApp {
@@ -16,7 +17,8 @@ class RacingGameApp {
 
   async setupGame() {
     const carNameResult = await this.inputView.inputCarNames();
-    this.Cars = carNameResult.split(",").map((car) => new Car(car));
+    const carNames = CarNameDto.from(carNameResult).carNameList;
+    carNames.map((car) => new Car(car));
 
     const rallyResult = await this.inputView.inputRacingRally();
     this.Referee = new Referee(Number(rallyResult), this.Cars);
