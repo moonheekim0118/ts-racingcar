@@ -1,12 +1,20 @@
 class Car {
-  readonly name: string;
-  position: number = 0;
+  private name: string;
+  private position: number = 0;
 
   constructor(name: string) {
     this.validateNameLength(name);
     this.validateNameHasWhiteSpace(name);
 
     this.name = name;
+  }
+
+  getName() {
+    return this.name;
+  }
+
+  getPosition() {
+    return this.position;
   }
 
   validateNameLength(name: string) {

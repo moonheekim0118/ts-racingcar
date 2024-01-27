@@ -31,11 +31,11 @@ class Referee {
 
   getWinners() {
     const highestScore = Math.max(
-      ...this.participants.map((participant) => participant.position)
+      ...this.participants.map((participant) => participant.getPosition())
     );
 
     const winners = this.participants.filter(
-      (participant) => participant.position === highestScore
+      (participant) => participant.getPosition() === highestScore
     );
 
     return winners;
